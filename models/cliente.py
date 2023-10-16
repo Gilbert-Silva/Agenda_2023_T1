@@ -14,6 +14,10 @@ class Cliente:
   def set_nome(self, nome): self.__nome = nome
   def set_email(self, email): self.__email = email
   def set_fone(self, fone): self.__fone = fone
+  def __eq__(self, x):
+    if self.__id == x.__id and self.__nome == x.__nome and self.__email == x.__email and self.__fone == x.__fone:
+      return True
+    return False 
   def __str__(self):
     return f"{self.__id} - {self.__nome} - {self.__email} - {self.__fone}"
 
