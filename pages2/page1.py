@@ -7,7 +7,7 @@ class Curso:
         self.nome = nome
 
 x = Curso("InfoWeb", "Técnico em Informática para Internet")
-y = Curso("Tads", "Tecnologia em Análise e Desenvolvimento")
+y = Curso("Tads", "Tecnologia em Análise e Desenvolvimento de Sistemas")
 
 st.write("Página 01")
 z = [ x.__dict__, y.__dict__ ]

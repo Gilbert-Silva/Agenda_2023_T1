@@ -1,8 +1,15 @@
 from inicioUI import InicioUI
 from equacaoUI import EquacaoUI
+from manterclienteUI import ManterClienteUI
 
-#InicioUI.main()
-EquacaoUI.main()
+class IndexUI:
+    @classmethod
+    def main(cls):
+      #InicioUI.main()
+      #EquacaoUI.main()
+      ManterClienteUI.main()
+
+IndexUI.main()
 
 
 
