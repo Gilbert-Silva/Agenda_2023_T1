@@ -54,8 +54,8 @@ class NCliente:
   @classmethod
   def excluir(cls, obj):
     NCliente.abrir()
+    cliente = cls.listar_id(obj.get_id())
     if cliente is not None:
-      cliente = cls.listar_id(obj.get_id())
       cls.__clientes.remove(cliente)    
       NCliente.salvar()
   @classmethod
