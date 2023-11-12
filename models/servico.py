@@ -6,6 +6,8 @@ class Servico:
     self.__descricao = descricao
     self.__valor = valor
     self.__duracao = duracao
+    if valor < 0: raise ValueError("Valor não pode ser negativo")
+    if duracao < 0: raise ValueError("Duração não pode ser negativa")
 
   def get_id(self): return self.__id
   def get_descricao(self): return self.__descricao
@@ -14,8 +16,12 @@ class Servico:
 
   def set_id(self, id): self.__id = id
   def set_descricao(self, descricao): self.__descricao = descricao
-  def set_valor(self, valor): self.__valor = valor
-  def set_duracao(self, duracao): self.__duracao = duracao
+  def set_valor(self, valor): 
+    self.__valor = valor
+    if valor < 0: raise ValueError("Valor não pode ser negativo")
+  def set_duracao(self, duracao): 
+    self.__duracao = duracao
+    if duracao < 0: raise ValueError("Duração não pode ser negativa")
 
   def __eq__(self, x):
     if self.__id == x.__id and self.__descricao == x.__descricao and self.__valor == x.__valor and self.__duracao == x.__duracao:
