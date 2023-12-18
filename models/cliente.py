@@ -1,4 +1,5 @@
 import json
+from models.modelo import Modelo
 
 class Cliente:
   def __init__(self, id, nome, email, fone, senha):
@@ -29,7 +30,31 @@ class Cliente:
     return f"{self.__id} - {self.__nome} - {self.__email} - {self.__fone}"
 
 
-class NCliente:
+class NCliente(Modelo):
+  @classmethod
+  def abrir(cls):
+    cls.objetos = []
+    try:
+      with open("clientes.json", mode="r") as arquivo:
+        clientes_json = json.load(arquivo)
+        for obj in clientes_json:
+          aux = Cliente(obj["_Cliente__id"], 
+                        obj["_Cliente__nome"], 
+                        obj["_Cliente__email"],
+                        obj["_Cliente__fone"],
+                        obj["_Cliente__senha"])
+          cls.objetos.append(aux)
+    except FileNotFoundError:
+      pass
+
+  @classmethod
+  def salvar(cls):
+    with open("clientes.json", mode="w") as arquivo:
+      json.dump(cls.objetos, arquivo, default=vars)
+
+
+
+class NCliente2:
   __clientes = []  # lista de clientes inicia vazia
 
   @classmethod

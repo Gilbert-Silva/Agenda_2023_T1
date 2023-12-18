@@ -32,7 +32,8 @@ class ManterServicoUI:
         st.success("Serviço inserido com sucesso")
         time.sleep(2)
         st.rerun()
-      except:
+      except Exception as erro:
+        st.error(erro)
         st.error("Informe valores válidos para valor e duração")  
 
   def atualizar():
